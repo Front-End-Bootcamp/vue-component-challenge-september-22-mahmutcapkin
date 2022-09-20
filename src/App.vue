@@ -1,6 +1,12 @@
 <script setup>
+import {onMounted,ref} from 'vue'
 import BootcampLogo from "./assets/svg/BootcampLogo.vue"
-import HelloWorld from './components/HelloWorld.vue'
+import ButtonComp from '@/components/ButtonComponent/Button.vue';
+import DATA from "@/assets/data/data.json";
+import getGroupNames from "@/assets/scripts/option.one";
+
+const groupNames = getGroupNames(DATA);
+
 </script>
 
 <template>
@@ -14,7 +20,8 @@ import HelloWorld from './components/HelloWorld.vue'
 			<img src="/vue.svg" class="logo vue" alt="Vue logo" />
 		</a>
 	</div>
-	<HelloWorld msg="Vite + Vue" />
+	<ButtonComp v-for="groupName in groupNames" :group="groupName" :key="groupName"></ButtonComp>
+
 </template>
 
 <style scoped>
