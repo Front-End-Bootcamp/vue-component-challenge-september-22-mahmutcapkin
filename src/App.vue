@@ -5,7 +5,11 @@ import ButtonComp from '@/components/ButtonComponent/Button.vue';
 import DATA from "@/assets/data/data.json";
 import getGroupNames from "@/assets/scripts/option.one";
 
-const groupNames = getGroupNames(DATA);
+//sayfa render edildiğinde çalışması için onMounted'da group isimleri çağrıldı.
+const groupNames= ref({})
+onMounted(() => {
+	groupNames.value = getGroupNames(DATA);
+})
 
 </script>
 
